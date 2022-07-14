@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 이벤트를 연결합니다.
+    window.onload = function () {
+      // 문서 객체를 선택합니다
+      var button = document.getElementById('button');
+
+      // 이벤트를 연결합니다
+      button.onclick = function(e){
+        // 기본 이벤트를 제거합니다.
+        alert('클릭 이벤트 발생!!!');
+        // return false;
+        e.preventDefault();
+      };
+    };
+
+    
+  </script>
+</head>
+<body>
+  <a id="button" href="https://boottent.sayun.studio/camps/ktaivle-ai">버튼</a>
+</body>
+</html>

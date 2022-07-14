@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+      // h1 태그의 배경색상을 변경한다
+      // document.querySelector('h1').style.backgroundColor = 'red';
+      // var h1 = document.querySelector('h1'); // 맨처음 하나만 실행가능 여러개 쓰고싶으면 querySelectorAll
+      // h1.style.backgroundColor = 'red';
+      // h2 태그의 글자 색상을 변경한다
+      // document.querySelector('h2').style.color = 'red';
+      window.onload = function (){  // onload 문서전체 생성하고 작동하는것
+        var h1 = document.querySelectorAll('h1');
+        for (let i=0; i < h1.length-1; i++){
+          h1[i].style.backgroundColor = 'red';
+        }
+        // h1.style.backgroundColor = 'red';
+        document.querySelector('h2').style.color = 'red';
+      };
+        </script>
+  <!-- style = 1.<style></style>: 문서전체 2.인라인 스타일 : 특정태그에만 스타일적용  3.~~.css=> <link~~> -->
+</head>
+<body>
+  <h1>Process - 1</h1>
+  <h1>Process - 1</h1>
+  <h1>Process - 1</h1>
+  <h2>Process - 2</h2>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<doctype html5 />
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>실습</title>
+        <script>
+            // 이부분을 완성할것 (필요하면 추가 함수 만드는것도 가능)
+            function chk_id(){  //아이디
+                var Id = document.input_form.id.value;
+                var chk_list =" ";
+                if (Id == "") // 입력 형식 검사  
+                {   
+                    alert("아이디를 입력하세요");  //입력 폼이 비어있을 경우 화면출력함
+                    document.input_form.id.focus(); // focus()
+                    return false;
+                } else {     
+                    if(Id.length < 6 || Id.length > 10) //입력 길이 검사
+                    {  
+                        alert("아이디 길이 확인(6~10자리)");
+                        document.input_form.id.focus();
+                        return false;  
+                    }else {  
+                        for(let i=0; i<Id.length; i++){ // 숫자 또는 영문자 인지 검사
+                            ch = Id.substring(i, i+1);
+                            if(!((ch >= "0" && ch <= "9") || (ch >= "a" && ch <= "z") || (ch >="A" && ch <= "Z")))
+                            {
+                                alert("특수문자가 포함, 다시 입력!!");
+                                document.input_form.id.focus();
+                                return false;
+                            }                          
+                        }
+                    }
+                }
+                chk_list += Id;
+                alert(chk_list);
+                return false;
+            }
+            function chk_pw(){ // 비밀번호
+                var Pw = document.input_form.pw.value;
+                var chk_list = " ";
+                if(Pw == "") // 비밀번호 입력 양식
+                {
+                    alert("비밀번호를 입력하세요");
+                    document.input_form.pw.focus(); // focus()
+                    return false;
+                }else{
+                    if(Pw.length < 6 || Pw.length > 10)
+                    {
+                        alert("비밀 번호 길이 확인(6~10자리)");  //비밀번호 길이 양식
+                        document.input_form.pw.focus();
+                        return false;
+                    }
+                    else{
+                        for(let i=0; i<Pw.length; i++){ // 숫자 또는 영문자 인지 검사
+                            ch = Pw.substring(i, i+1);
+                            if(!((ch >= "0" && ch <= "9") || (ch >= "a" && ch <= "z") || (ch >="A" && ch <= "Z")))
+                            {
+                                alert("특수문자가 포함, 다시 입력!!");
+                                document.input_form.pw.focus();
+                                return false;
+                            }       
+                        }
+                    }
+                }
+                chk_list += Pw;
+                alert(chk_list);
+                return false;
+            }
+            function chk_pw2(){
+                // 비밀번호 확인
+                var Pw2 = document.input_form.pw2.value;
+                var Pw = document.input_form.pw.value;
+                var chk_list = " ";
+                if(Pw2 == "") // 비밀번호 입력 양식
+                {
+                    alert("비밀번호를 입력하세요");
+                    document.input_form.pw2.focus(); // focus()
+                    return false;
+                }else{
+                    if(Pw2.length < 6 || Pw2.length > 10) // 비밀번호 길이 양식
+                    {
+                        alert("비밀 번호 길이 확인(6~10자리)");
+                        document.input_form.pw2.focus();
+                        return false;
+                    }
+                    else{
+                        for(let i=0; i<Pw2.length; i++){  // 숫자 또는 영문자 인지 검사
+                            ch = Pw2.substring(i, i+1);
+                            if(!((ch >= "0" && ch <= "9") || (ch >= "a" && ch <= "z") || (ch >="A" && ch <= "Z")))
+                            {
+                                alert("특수문자가 포함, 다시 입력!!");
+                                document.input_form.pw2.focus();
+                                return false;  //복귀 - 추가적인 이벤트가 있을경우 취소하는 것
+                            }
+                        }
+                        if(Pw2 != Pw){
+                            alert("비밀번호가 맞지않음, 다시 입력!!");
+                            document.input_form.pw2.focus();
+                            return false;  
+                        }
+                    }
+                }
+                chk_list += Pw2;
+                alert(chk_list);
+                return false;
+            }
+            function chk_jumin(){
+                 //주민번호 
+                let jumin1 = document.input_form.jumin1.value;
+                let jumin2 = document.input_form.jumin2.value;
+                let jumin = jumin1 + "-" + jumin2;
+
+                let w=2, hap=0, chk;
+                for(i=0; i<jumin.length-1; i++){
+                    if(i == 6){
+                        continue;
+                    }
+                    hap += parseInt(jumin.substring(i, i+1));
+                    w++;
+                    if(w == 10){
+                    w = 2;
+                    }
+                    chk = 11 - (hap % 11);
+                    if(chk == 10){
+                    chk = 0;
+                    }else if (chk == 11){
+                    chk = 1;
+                    }
+                    // console.log(str);
+                }
+                if (chk == parseInt(jumin.substring(13))){
+                str = jumin + "(정상)";
+                }else{
+                str = jumin + "(간첩)";
+                }
+                alert(str);
+                }
+            function check_input(){
+                chk_id();
+                chk_pw();
+                chk_pw2();
+                chk_jumin();
+            }
+        </script>
+    </head> 
+    <body>
+        <form name="input_form" method="post">
+            <table border="1" align="center" width="700px">
+                <!-- <pre> -->
+                <tr height="30px"> <!--아이디-->
+                    <td width="30%" align="center">아이디</td>
+                    <td><input type="text" name="id" style="ime-mode:inactive" placeholder="(최소 6~최대10, 숫자와알파벳만 사용)" size="30" required></td>
+                </tr>
+                <tr height="30px"><!--비밀번호-->
+                    <td align="center">비밀번호</td>
+                    <td><input type="password" name="pw" min="6" max="10" size="30" style="ime-mode:inactive" placeholder="(최소 6~최대10, 숫자와알파벳만 사용)"></td>
+                </tr>
+                <tr height="30px"><!--비밀번호확인-->
+                    <td align="center">비밀번호확인</td>
+                    <td><input type="password" name="pw2" min="6" max="10" size="30" style="ime-mode:inactive" placeholder="(최소 6~최대10, 숫자와알파벳만 사용)"></td>
+                </tr>
+                <tr height="30px"><!--주민번호-->
+                    <td align="center">주민번호</td>
+                    <td><input type="password" size="6" name="jumin1" maxlength="6"> - <input type="password" size="7" name="jumin2" maxlength="7"></td>
+                </tr>
+                <tr height="30px"><!--성별-->
+                    <td align="center">성별</td>
+                    <td><input type="radio" name="gender" >남
+                        <input type="radio" name="gender">여</td>
+                </tr>
+                <tr height="30px"><!--전화번호-->
+                    <td align="center">전화번호</td>
+                    <td>
+                        <input type="tel" name="tel" size="4"> - 
+                        <input type="tel" name="tel" size="4"> - 
+                        <input type="tel" name="tel" size="4">
+                    </td>
+                </tr>
+                <tr height="30px"><!--이메일-->
+                    <td align="center">이메일</td>
+                    <td><input type="email" name="email" size="10" style="ime-mode: inactive;">@
+                        <select>
+                            <option>naver.com</option>
+                            <option>daum.com</option>
+                            <option>nate.com</option>
+                            <option>navs.com</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr height="30px"><!--취미-->
+                    <td align="center">취미</td>
+                    <td>
+                        <input type="checkbox" value="a" name="등산">등산<input type="checkbox" value="b" name="독서">독서<input type="checkbox" value="c" name="스키">스키<input type="checkbox" value="d" name="음악">음악<input type="checkbox" value="f" name="영화">영화
+                    </td>
+                </tr>
+                <tr height="30px"><!--자기소개-->
+                    <td align="center">자기소개</td>
+                    <td><textarea cols="50" rows="8"></textarea></td>
+                </tr>
+                <tr height="30px" align="center">
+                    <td colspan="2"><input type="button" value="입력" onclick="check_input();" style="ime-mode: active;">&nbsp;<input type="reset" value="취소"></td>
+                </tr>
+            <!-- </pre> -->
+            </table>
+        </form>
+    </body>
+    </html>

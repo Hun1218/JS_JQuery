@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('button').click( function() {
+        $('h1').remove('#rm1, #rm2'); //목록을 나열하면 나열한 만큼 삭제할 수 있음
+      });
+    });
+  </script>
+</head>
+<body>
+      <button>H1 삭제</button>
+      <h1 id="rm1">H1 태그-1</h1>
+      <h1 id="rm2">H1 태그-2</h1>
+</body>
+</html>

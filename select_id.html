@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // // 이벤트를 연결합니다
+    // window.onload = function(){
+    //   // 문서 객체를 선택
+    //   var header = document.getElementById('header');
+
+    //   // 문서 객체를 조작
+    //   header.style.color = 'orange';
+    //   header.style.background = 'red';
+    //   header.innerHTML = 'From JavaScript';
+    // };
+
+      // // 이벤트를 연결합니다
+      // window.onload = function(){
+      // // 문서 객체를 선택
+      // var header = document.querySelector('h1');
+
+      // // 문서 객체를 조작
+      // header.style.color = 'orange';
+      // header.style.background = 'red';
+      // header.innerHTML = 'From JavaScript';
+
+    //   // 이벤트를 연결합니다
+    //      window.onload = function(){
+    //   // 문서 객체를 선택
+    //   var headers = document.querySelectorAll('h1');
+    //   for(let i=0; i < headers.length-1; i++){
+    //     var header = headers[i];
+    //     // 문서 객체를 조작
+    //     header.style.color = 'orange';
+    //     header.style.background = 'red';
+    //     header.innerHTML = 'From JavaScript';
+    //   }
+    // };
+      // 내부 글자 변경
+      // 이벤트를 연결합니다
+      window.onload = function(){
+        // 변수를 선언합니다
+        var output = ' ';
+        for (var i = 0; i < 10; i++){
+          output += '<h1>Header - ' + i + '</h1>';
+        }
+
+        // 문서 객체 내부의 글자를 변경한다
+        document.body.innerHTML = output;
+      }
+  </script>
+</head>
+<body>
+  <!-- <h1 id="header"> Header </h1> -->
+  <!-- <h1> Header </h1>
+  <h1> Header </h1>
+  <h1> Header </h1>
+   -->
+</body>
+</html>

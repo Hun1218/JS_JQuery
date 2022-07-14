@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-3.6.0.js"></script>
+  <script>
+      $(document).ready(function (){
+         // 변수를 선언합니다
+         var text = $('h1').text();  // 자식태그들 중에 html 태그는 모두 제외
+         var html = $('h1').html(); // 자식태그을 html형식으로 읽어올때 사용되는
+         
+         //출력합니다.
+         alert("text: " + text);
+         alert("text: " + html); // 한번에 h1태그 내용 하나씩 출력
+         
+      });
+  </script>
+</head>
+<body>
+  <!-- <h1>Header - 0</h1>
+  <h1>Header - 1</h1> -->
+    <h1>aaa<br>bbb<br>ccc</h1>
+</body>
+</html>

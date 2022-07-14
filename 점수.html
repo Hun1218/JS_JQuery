@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var hakbun = prompt("학번을 입력하세요");
+        var nave = prompt("이름을 입력하세요")
+        var kor = parseInt(prompt("국어 점수를 입력하세요"));
+        var eng = parseInt(prompt("영어 점수를 입력하세요"));
+        var math = parseInt(prompt("수학 점수를 입력하세요"));
+        var sum = kor + eng + math;
+        var avg = parseInt(sum / 3);
+        var grade;
+        
+        // if(avg > 90)  grade = 'B';
+        // else if(85 > avg) grade = 'B';
+        // else if(75 > avg) grade = 'C';
+        // else if(65 > avg) grade = 'D';
+        // else grade = 'F';
+        var avg2 = avg / 10;
+
+        switch(avg2){
+            case 10:
+            case 9: grade = 'A';
+            break;
+            case 8: grade = 'B';
+            break;
+            case 7: grade = 'C';
+            break;
+            case 6: grade = 'D';
+            break;
+            default: grade = 'F';
+        }
+
+
+        document.write("<table border='1'>" );
+        document.write("<tr>");
+        document.write("<th>학번</th>");
+        document.write("<th>이름</th>");
+        document.write("<th>국어</th>");
+        document.write("<th>영어</th>");
+        document.write("<th>수학</th>");
+        document.write("<th>총점</th>");
+        document.write("<th>평균</th>");
+        document.write("<th>등급</th>");
+        document.write("</tr>"); 
+        document.write("<tr>");
+        document.write(`<td>${hakbun}</td>`);   
+        document.write(`<td>${nave}</td>`);   
+        document.write(`<td>${kor}</td>`);   
+        document.write(`<td>${eng}</td>`);   
+        document.write(`<td>${math}</td>`);   
+        document.write(`<td>${sum}</td>`);   
+        document.write(`<td>${avg}</td>`);   
+        document.write(`<td>${grade}</td>`);   
+        document.write("</tr>");
+        document.write("</table>");    
+    </script>
+</body>
+</html>
+
+<!-- 1. 초기식 2. 조건식 3. 반복처리할내용 4. 증감식 -->
+
+<!-- for(1.초기식, 2.조건식, 4.증감식 ){
+    3. 반복 처리 할 내용
+} -->

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=k, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function (){
+    // 문서 객체를 추가합니다.
+    var output = "";
+    for(var i =0; i < 6; i++){
+      output += '<div></div>';
+    }
+    document.body.innerHTML = output;
+
+    // 스타일을 적용합니다.
+    $('div').css({
+      height: function (a) {  //div 갯수만큼 반복 호출됨
+        alert(a);
+        return a; 
+      },
+      backgroundColor: function(a, ){ //div 갯수만큼 반복 호출됨
+        return 'rgb(' + a +',' + a  +',' + a +')';
+      }
+    }); 
+  });
+</script>
+<body>
+    
+</body>
+</html>

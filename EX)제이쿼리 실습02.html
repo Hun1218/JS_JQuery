@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+    
+    // $(document).ready(function () {
+    //   var name = $('#name').val();
+    //   var avg = $('#avg').val();
+    //     $('#btnAdd').click(function() {
+    //         var str = '<tr><td input type="text" id="name2" size="10">'+ name +'</td>';
+    //             str+= '<td input type="text" id="avg" size="10">'+ avg +'</td>';
+    //             str+= '<td input type="button" class="btnDel" size="10" value="Del"></td>';
+    //             str+= '</tr>';
+
+    //     $('#list').append(str);
+    //     });
+    //       $("#list").on("click", ".btnDel", function(){
+    //       $(this).parent().parent().remove(); // this(btnDel)의 부모(td)의 부모(tr)를
+    //       // $(this).parent().remove(); // this(btnDel)의 부모(td)의 부모(tr)를
+    //   });
+    // });
+// 표현식 변수에 저장하지 않고 바로 출력
+    $(document).ready(function () {
+      $("#btnAdd").click(function(){
+        var row = `<tr align='center'>
+                      <td>${$('#irum').val()}</td> 
+                      <td>${$('#score').val()}</td>
+                      <td><input type="button" class="btnDel" value="Del"></td>
+                   </tr>`;
+
+            $("#list").append(row);
+            $('#irum').val('');       
+            $('#score').val('');     // $제이쿼리 문법: 어떤요소를 가리킬 때 사용하는 문법요소  
+      });
+
+      $("#list").on("click", ".btnDel", function(){
+          $(this).parent().parent().remove();
+      });
+    });
+  </script>
+</head>
+<body>
+    <!-- <table border="1" >
+      <tr>
+        <th> <input type="text" id="name" ></th>
+        <th> <input type="text" id="avg"></th>
+        <th> <input type="button" id="btnAdd" value="추가"></th>
+      </tr>
+    </table>
+
+    <table border="1" id="list">
+
+    </table> -->
+
+    <table border="1" align="center"> 
+      <tr>
+        <td><input type="text" id="irum" size="5" placeholder="이름입력" ></td>
+        <td><input type="text" id="score" size="5" placeholder="점수입력"></td>
+        <td><input type="button" id="btnAdd" value="추가"></td>
+      </tr>
+    </table>
+    <br>
+    <table id="list" border="1" align="center">
+      <tr>
+        <th width="70px">이름</th>
+        <th width="70px">점수</th>
+        <th width="50px">&nbsp;</th>
+      </tr>
+    </table>
+
+</body>
+</html>
